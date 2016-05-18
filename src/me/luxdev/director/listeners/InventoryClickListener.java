@@ -30,9 +30,7 @@ public class InventoryClickListener implements Listener{
 				p.sendMessage("§7INFO: §6Aktualnie wedka po kliknieciu bedzie cie kierowac na Gline..");
 			}
 		}
-		}catch(Exception e){
-			return;
-		}
+		}catch(Exception e){}
 	
 	}
 }

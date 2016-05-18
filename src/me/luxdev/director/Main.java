@@ -22,6 +22,8 @@ public class Main extends JavaPlugin{
 	}
 	public void onDisable(){
 		
+		instance = null;
+		
 	}
 	public static Main getInst(){
 		return instance;

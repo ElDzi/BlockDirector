@@ -21,21 +21,26 @@ public class PlayerInteractListener implements Listener {
 	public void onClick(PlayerInteractEvent e) {
 		Player p = e.getPlayer();
 		ItemStack im = p.getItemInHand();
-		User u = User.getUser(p.getName());
+		try{
+		User u = User.getUser(p.getName());	
 		if (im.equals(GUICommand.wedka)) {
 			if (e.getAction().equals(Action.RIGHT_CLICK_BLOCK) || (e.getAction().equals(Action.RIGHT_CLICK_AIR))) {
 				e.setCancelled(true);
 				if (u.isWatchingclay()) {
 					Location loc = circle(p.getLocation(), Material.CLAY, 20);
 					if(loc == null){
-						p.sendMessage("ง7INFO: ง6W lokalizacji 20 kratek wokol ciebie nie ma gliny ;(");
+						p.sendMessage("ยง7INFO: ยง6W lokalizacji 20 kratek wokol ciebie nie ma gliny ;(");
 						return;
 					}
 					int i = (int) p.getLocation().distance(loc);
-					p.sendMessage("ง7INFO:ง6 " + i + " Kratek Od Ciebie znajduje sie glina, powodzenia :)");
+					p.sendMessage("ยง7INFO:ยง6 " + i + " Kratek Od Ciebie znajduje sie glina, powodzenia :)");
 				}
 			}
 		}
+		}catch(Exception e){
+			
+		}
+	
 	}
 
 	public Location circle(Location loc, Material mat, int radius) {

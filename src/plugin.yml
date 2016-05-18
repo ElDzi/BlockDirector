@@ -1,6 +1,6 @@
 name: LVLUPDirector
 version: 1.0
 main: me.luxdev.director.Main
-author: luxDev
+authors: [luxDev, ElDzi]
 commands:
     DirectorGUI:

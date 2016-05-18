@@ -24,12 +24,5 @@ public class User {
 	public void setWatchingIronOre(boolean watchingIronOre) {
 		WatchingIronOre = watchingIronOre;
 	}
-	public static User getUser(String name){
-		for (User u : UserUtils.users) {
-			if (u.getName().equals(name)) {
-				return u;
-			}
-		}
-		return null;
-	}
+
 }

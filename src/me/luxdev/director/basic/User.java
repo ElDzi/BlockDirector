@@ -3,8 +3,8 @@ package me.luxdev.director.basic;
 public class User {
 	
 	private String name;
-	private boolean Watchingclay;
-	private boolean WatchingIronOre;
+	private boolean watchingclay;
+	private boolean watchingIronOre;
 	
 	public User(String name){
 		this.name = name;
@@ -13,23 +13,16 @@ public class User {
 		return this.name;
 	}
 	public boolean isWatchingclay() {
-		return Watchingclay;
+		return watchingclay;
 	}
 	public void setWatchingclay(boolean watchingclay) {
-		Watchingclay = watchingclay;
+		this.watchingclay = watchingclay;
 	}
 	public boolean isWatchingIronOre() {
-		return WatchingIronOre;
+		return watchingIronOre;
 	}
 	public void setWatchingIronOre(boolean watchingIronOre) {
-		WatchingIronOre = watchingIronOre;
+		this.watchingIronOre = watchingIronOre;
 	}
-	public static User getUser(String name){
-		for (User u : UserUtils.users) {
-			if (u.getName().equals(name)) {
-				return u;
-			}
-		}
-		return null;
-	}
+
 }

@@ -17,18 +17,26 @@ import me.luxdev.director.basic.User;
 
 public class GUICommand implements CommandExecutor{
 	
-	public static ItemStack clay = createItemWL(Material.CLAY, 1, (short) 0, "§aGlina", "§bKliknij aby kierowalo Cie na Gline.");
-	public static ItemStack wedka = createItemWL(Material.FISHING_ROD, 1, (short) 0, "§aUltraWedka", "§bKliknij raz aby cie kierowalo.");
+	public static ItemStack clay = createItemWL(Material.CLAY, 1, (short) 0, "Â§aGlina", "Â§bKliknij aby kierowalo Cie na Gline.");
+	public static ItemStack wedka = createItemWL(Material.FISHING_ROD, 1, (short) 0, "Â§aUltraWedka", "Â§bKliknij raz aby cie kierowalo.");
 	
 	@Override
 	public boolean onCommand(CommandSender p, Command cmd, String s, String[] args) {
 		if(cmd.getName().equalsIgnoreCase("DirectorGUI")){
 			Player pl = (Player) p;
+			try{
 			User u = User.getUser(pl.getName());
-			Inventory inv = Bukkit.createInventory(pl, 27, "§eWybierz Swoj Cel " + p.getName());
+			Inventory inv = Bukkit.createInventory(pl, 27, "Â§eWybierz Swoj Cel " + p.getName());
 			inv.setItem(0, clay);
 			pl.openInventory(inv);
 			pl.getInventory().addItem(wedka);
+			return true;
+			}catch(Exception e){
+				pl.sendMessage("Â§eZaloguj sie ponownie! Mamy pewien blad !");
+				p.sendMessage("Â§eGracz nie ma stworzonego usera!");
+				return true;
+			}
+			
 		}
 		return false;
 	}

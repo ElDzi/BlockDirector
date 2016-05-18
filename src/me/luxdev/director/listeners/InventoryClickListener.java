@@ -15,20 +15,24 @@ public class InventoryClickListener implements Listener{
 	public void invClickEvt(InventoryClickEvent e){
 		Player p = (Player) e.getWhoClicked();
 		ItemStack im = e.getCurrentItem();
+		try{
 		User u = User.getUser(p.getName());
-		if(im.equals(GUICommand.clay)){
+			if(im.equals(GUICommand.clay)){
 			if(u.isWatchingclay()){
 				e.setCancelled(true);
 				u.setWatchingclay(false);
-				p.sendMessage("ง7INFO: ง6Wedka juz nie bedzie cie kierowac na gline..");
+				p.sendMessage("ยง7INFO: ยง6Wedka juz nie bedzie cie kierowac na gline..");
 				return;
-			}
-			if(!u.isWatchingclay()){
+			}else{
 				e.setCancelled(true);
 				u.setWatchingclay(true);
 				p.closeInventory();
-				p.sendMessage("ง7INFO: ง6Aktualnie wedka po kliknieciu bedzie cie kierowac na Gline..");
+				p.sendMessage("ยง7INFO: ยง6Aktualnie wedka po kliknieciu bedzie cie kierowac na Gline..");
 			}
 		}
+		}catch(Exception e){
+			return;
+		}
+	
 	}
 }
